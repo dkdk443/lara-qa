@@ -10,7 +10,14 @@
           @foreach ($questions as $question)
             <div class="media">
               <div class="media-body">
-                <h3 class="mt-0">  {{$question->title}}</h3>
+                <h3 class="mt-0"> 
+                  {{-- {{route('question.show', $question->id)}} --}}
+                <a href="{{ $question->url }}"> {{ $question->title }}</h3></a>
+                {{-- ↑urlの定義：モデル --}}
+                <p class="lead">
+                  Asked by <a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
+                  <small class="text-muted">{{ $question->created_date}}</small>
+                </p>
                 {{str_limit($question->body, 250)}}
               </div>
             </div>
