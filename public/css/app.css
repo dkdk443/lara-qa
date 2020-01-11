@@ -11356,6 +11356,10 @@ a.text-dark:focus {
   }
 }
 
+* {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
 .counters {
   margin-right: 30px;
   font-size: 10px;
