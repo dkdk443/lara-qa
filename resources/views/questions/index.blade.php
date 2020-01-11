@@ -41,6 +41,11 @@
                   <a href="{{ $question->url }}"> {{ $question->title }}</a></h3>
                   <div class="ml-auto">
                     <a href="{{ route('questions.edit', $question->id)}}" class="btn btn-sm btn-outline-info">編集</a>
+                  　  <form action="{{ route('questions.destroy', $question->id)}}" method="post">
+                      @method('DELETE')
+                      @csrf
+                      <button type="submit" class="btn btn-sm btn-outline-danger" onclick="return confirm('本当に削除しますか？')">削除</button>
+                   </form>
                   </div>
                 </div>
                 {{-- ↑urlの定義：モデル --}}
