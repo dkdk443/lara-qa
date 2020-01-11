@@ -19,23 +19,23 @@
             @csrf
             <div class="form-group">
               <label for="question-title">タイトル</label>
-            <input type="text" class="form-control {{ $errors->has('title')? 'is-invalid' : ''}}" name="title" id="question-title" aria-describedby="helpId" placeholder="質問のタイトル">
+            <input type="text" class="form-control {{ $errors->has('title')? 'is-invalid' : ''}}" name="title" id="question-title" aria-describedby="helpId" placeholder="質問のタイトル" value="{{ old('title') }}">
               <small id="helpId" class="form-text text-muted">質問のタイトルを入力してください</small>
-              
+
               @if($errors->has('title'))
-                <div class="invaild-feedback">
-                <strong>{{ $erros->first('title') }}</strong>
+                <div class="invalid-feedback">
+                <strong>タイトルは必須です</strong>
                 </div>
               @endif
             </div>
 
             <div class="form-group">
               <label for="question-body">内容</label>
-              <textarea name="body" id="question-body" rows="8"　class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}}"></textarea>
+            <textarea name="body" id="question-body" rows="8"　class="form-control {{ $errors->has('body') ? 'is-invalid' : ''}}">{{ old('body') }}</textarea>
               <small id="helpId" class="form-text text-muted">質問の内容を入力してください</small>
               @if($errors->has('body'))
-                <div class="invaild-feedback">
-                <strong>{{ $erros->first('body') }}</strong>
+                <div class="invalid-feedback">
+                <strong>質問内容は必須です</strong>
                 </div>
               @endif
             </div>
