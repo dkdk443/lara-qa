@@ -73,7 +73,11 @@ class QuestionsController extends Controller
      */
     public function edit(Question $question)
     {
-        return view('questions.edit', compact('question'));
+        if(\Gate::allows('update-question', $question)){
+            return view('questions.edit', compact('question'));
+        }
+        abort(404, "アクセスできません");
+
     }
 
     /**
@@ -98,9 +102,15 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
-        $question->delete();
+        if(\Gate::allows('delete-question', $question)){
+            $question->delete();
 
-        return redirect('/questions')->with('success', "質問が削除
-        されました");
+            return redirect('/questions')->with('success', "質問が削除
+            されました");
+        }
+        abort(404, "アクセスできません");
+
+
+       
     }
 }
