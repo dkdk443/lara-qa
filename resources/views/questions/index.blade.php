@@ -25,12 +25,10 @@
                 </div>
               <div class="status {{ $question->status }}">
                   <strong>{{ $question->answers }}</strong>
-                 {{-- 複数形にするメソッド --}}
                   {{ str_plural('answer', $question->answers) }}
                 </div>
                 <div class="view">
                   {{ $question->views }}
-                 {{-- 複数形にするメソッド --}}
                   {{ str_plural('view', $question->views) }}
                 </div>
               </div> 
