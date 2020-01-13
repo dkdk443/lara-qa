@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Answer extends Model
 {
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['body', 'user_id'];
 
     public function getBodyHtmlAttribute()
     {
